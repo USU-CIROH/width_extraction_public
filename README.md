@@ -34,7 +34,7 @@ To get a local copy up and running follow these simple example steps.
 #### Output
 * Figures of XS profiles of multiple terrains in 'figures' folder 
 <p align="center" width="100%">
-<img width="50%" src="/figures/xsect_20m_200m_1p25m_same_vertical_offset/profile_186.png" alt="output0">
+<img width="50%" src="/figures/xsect_20m_200m_1p25m_same_vertical_offset/profile_16.png" alt="output0">
 </p>
 
 * Figures of longitudinal bed elevation and width series in 'figures' folder
