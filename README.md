@@ -27,25 +27,26 @@ To get a local copy up and running follow these simple example steps.
 
 #### main.py
 
-* Input
- - XS lines (path_xsect): path to the transect lines (e.g., './gis_files/thalweg_XS_20m_200m.shp' where station interval = 20 m, length = 200 m)
- - Terrains (path_terrains): path to the terraian (XX.asc), can process two terrains as of now (e.g., ['./DEM/pre-fire.tif', './DEM/post-fire.tif'])
+#### Input
+* XS lines (path_xsect): path to the transect lines (e.g., './gis_files/thalweg_XS_20m_200m.shp' where station interval = 20 m, length = 200 m)
+* Terrains (path_terrains): path to the terraian (XX.asc), can process two terrains as of now (e.g., ['./DEM/pre-fire.tif', './DEM/post-fire.tif'])
   
-* Output
- - Figures of XS profiles of multiple terrains in 'figures' folder 
+#### Output
+* Figures of XS profiles of multiple terrains in 'figures' folder 
 <p align="center" width="100%">
 <img width="50%" src="/figures/xsect_20m_200m_1p25m_same_vertical_offset/profile_186.png" alt="output0">
 </p>
 
- - Figures of longitudinal bed elevation and width series in 'figures' folder
-  - Bed elevation and width variation
+* Figures of longitudinal bed elevation and width series in 'figures' folder
+ * Bed elevation and width variation
 <p align="center" width="100%">
 <img width="50%" src="/figures/z_series_20m_200m_1p25m_same_vertical_offset.png" alt="output1">
 </p>
 <p align="center" width="100%">
 <img width="50%" src="/figures/w_series_20m_200m_1p25m_same_vertical_offset.png" alt="output2">
 </p>
-  - Table of longitudinal bed elevation and width series in 'tables' folder
+
+* Table of longitudinal bed elevation and width series in 'tables' folder
 
 
 
