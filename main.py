@@ -20,7 +20,7 @@ from width_series_generator import *
 #   Table of longitudinal bed elevation and width series in 'tables' folder
 
 ## Example code
-#   This example extracts XS profiles from a pre-fire and post-fire terrains, calcualtes widths, and and see how they change.
+#   This example extracts XS profiles from a pre-fire and post-fire terrains, calcualtes widths, compares them.
 
 ## Variables
 thalweg_name = 'thalweg'        # name of thalweg shape file (used for path_xsect)
