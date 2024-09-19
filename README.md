@@ -38,11 +38,10 @@ To get a local copy up and running follow these simple example steps.
 </p>
 
  - Figures of longitudinal bed elevation and width series in 'figures' folder
-  - Bed elevation
+  - Bed elevation and width variation
 <p align="center" width="100%">
 <img width="50%" src="/figures/z_series_20m_200m_1p25m_same_vertical_offset.png" alt="output1">
 </p>
-  - Bed elevation
 <p align="center" width="100%">
 <img width="50%" src="/figures/w_series_20m_200m_1p25m_same_vertical_offset.png" alt="output2">
 </p>
