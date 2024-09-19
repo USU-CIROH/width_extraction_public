@@ -1,7 +1,3 @@
-# width_extraction_public
- 
-
-
 
 
 <!-- ABOUT THE PROJECT -->
