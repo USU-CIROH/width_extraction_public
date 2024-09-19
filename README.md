@@ -92,7 +92,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Anzy Lee anzy.lee@usu.edu
 
-Project Link: [https://github.com/anzylee/HAND-FIM_Assessment_public](https://github.com/anzylee/HAND-FIM_Assessment_public)
+Project Link: [https://github.com/USU-CIROH/width_extraction_public](https://github.com/USU-CIROH/width_extraction_public)
 
 
 <!-- ACKNOWLEDGMENTS 
