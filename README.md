@@ -4,6 +4,8 @@
 # Width Extraction toolset
 
 This toolset generates a longitudinal bed elevation and width series for a given water stage from terrain(s).
+This example extracts XS profiles from a pre-fire and post-fire terrains, calcualtes widths, and compare them.
+If two terrains are given, the width can be extracted (1) at the same vertical offset from the thalweg elevation or (2) at the same water stage.
 
 <!-- GETTING STARTED -->
 
