@@ -69,11 +69,11 @@ def width_series_generator(path_xsect, path_terrains, ini_water_depth, min_elev,
             del xsecttable
         # arcpy.management.Delete(xsecttab)
 
-    bed_stage_width_df = pd.DataFrame(np.zeros((max(Line_IDs), len(path_terrains)+3)))
+    bed_stage_width_df = pd.DataFrame(np.zeros((len(Line_IDs), len(path_terrains)+3)))
     path_fig = './figures/xsect_' + int_len_depth_method
 
     for Line_ID in Line_IDs:
-        print("Line ID = ", str(Line_ID), ' (or '+str(max(Line_IDs)-Line_ID)+' in figure)')
+        print("Line ID = ", str(Line_ID))
 
         x0, z0, width0, min_elevation0, water_stage0, x_intercept0 = width_calculator(xsectdf0, Line_ID,
                                                                                       min_elev,
@@ -160,21 +160,29 @@ def width_series_generator(path_xsect, path_terrains, ini_water_depth, min_elev,
 
 
         #width_series = np.append(width_series, width)
-        bed_stage_width_df.loc[max(Line_IDs) - Line_ID, 0] = min_elevation0
-        bed_stage_width_df.loc[max(Line_IDs) - Line_ID, 1] = min_elevation1
-        bed_stage_width_df.loc[max(Line_IDs) - Line_ID, 2] = water_stage0
-        bed_stage_width_df.loc[max(Line_IDs) - Line_ID, 3] = width0
-        bed_stage_width_df.loc[max(Line_IDs) - Line_ID, 4] = width1
+        bed_stage_width_df.loc[Line_ID, 0] = min_elevation0
+        bed_stage_width_df.loc[Line_ID, 1] = min_elevation1
+        bed_stage_width_df.loc[Line_ID, 2] = water_stage0
+        bed_stage_width_df.loc[Line_ID, 3] = width0
+        bed_stage_width_df.loc[Line_ID, 4] = width1
+
 #comment out block below here to toggle on/off certain station figure for figures
         if figure_xsect == 1:
-            plt.savefig(path_fig + '/profile_' + str(max(Line_IDs) - Line_ID))
+            plt.savefig(path_fig + '/profile_' + str(Line_ID))
 
-            if max(Line_IDs) - Line_ID == stop_at_Line_ID:
+            if Line_ID == stop_at_Line_ID:
                 #os.system("pause")
                 break
             plt.close()
         plt.close('all')
 
+    bed = bed_stage_width_df[1]
+    bed_ind = bed > 0
+    Line_IDs = Line_IDs[bed_ind]
+    bed_stage_width_df = bed_stage_width_df[bed_ind]
+    bed_posi = bed_stage_width_df[1]
+    if bed_posi.iloc[0] < bed_posi.iloc[-1]:
+        bed_stage_width_df = bed_stage_width_df.iloc[::-1]
 
     return Line_IDs, bed_stage_width_df
 

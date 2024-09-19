@@ -24,18 +24,18 @@ from width_series_generator import *
 
 ## Variables
 thalweg_name = 'thalweg'        # name of thalweg shape file (used for path_xsect)
-interval = 20                    # interval of XS lines in meter
+interval = 20                   # interval of XS lines in meter
 station_length = 200            # length of XS lines (used for path_xsect)
 is_x_from_upstream = 0          # 1 if XS line starts from upstream, 0 if from downstreasm
 
 ## Methods and parameters
-method = 'same_vertical_offset'     # 'same_vertical_offset' or 'same_water_stage'
-water_depth = 1.25                  # the water depth at the xsect of interested (e.g. 1st riffle-crest)
+method = 'same_water_stage'     # 'same_vertical_offset' or 'same_water_stage'
+water_depth = 1.25              # the water depth at the xsect of interested (e.g. 1st riffle-crest)
+stop_at_Line_ID = 30            # Line ID of XS that stops width extraction (used for path_xsect)
+                                # np.nan to use all XS lines
 
 #################################################################
-
 ## Other parameters (default)
-stop_at_Line_ID = np.nan        # Line ID of XS that stops width extraction (used for path_xsect)
 method_width = 'sum'            # 'sum': summation of fractions of widths (default), 'total': from the far left to far right ,
 min_elev = 1000                 # Default elevation added to DEM
 max_slope = 20                  # Upper limit of imaginary WSE slope
@@ -52,26 +52,10 @@ path_terrains = ['./DEM/pre-fire.tif', './DEM/post-fire.tif'] # [pre-fire, post-
 
 unit = 'SI'
 
-Line_IDs_orig, bed_stage_width_df_orig = width_series_generator(path_xsect, path_terrains, water_depth, min_elev, max_slope, stop_at_Line_ID,
+Line_IDs, bed_stage_width_df = width_series_generator(path_xsect, path_terrains, water_depth, min_elev, max_slope, stop_at_Line_ID,
                                                 int_len_depth_method, figure_xsect, unit, method, method_width)
 
-if stop_at_Line_ID > 0:
-    if is_x_from_upstream == 0:
-        Line_IDs = Line_IDs_orig[stop_at_Line_ID:]
-        bed_stage_width_df = bed_stage_width_df_orig[stop_at_Line_ID:]
-    else:
-        Line_IDs = Line_IDs_orig[:stop_at_Line_ID+1]
-        bed_stage_width_df = bed_stage_width_df_orig[:stop_at_Line_ID+1]
-else:
-    Line_IDs = Line_IDs_orig
-    bed_stage_width_df = bed_stage_width_df_orig
-
 x_dist = Line_IDs*interval
-
-#if is_x_from_upstream == 0:
-#    x_dist_from_upstream = max(x_dist) - x_dist
-#else:
-#    x_dist_from_upstream = x_dist
 
 plt.figure(figsize=(12,6))
 plt.plot(x_dist, bed_stage_width_df.iloc[:, 3], label='Pre-fire width')
