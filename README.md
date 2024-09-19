@@ -1,7 +1,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## Width Extraction toolset
+# Width Extraction toolset
 
 
 
